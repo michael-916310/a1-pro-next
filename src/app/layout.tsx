@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import {GlobalLayout} from "@/modules/global-layout/components/global-layout.component";
+import { GlobalLayout } from "@/modules/global-layout/components/global-layout.component";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,11 +15,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    <html lang="en">
-    <body className={inter.className}>
-      <GlobalLayout>{children}</GlobalLayout>
-    </body>
-    </html>
+      <html lang="en">
+      <head>
+        <meta charSet="UTF-8"/>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
+              rel="stylesheet"/>
+        <title>Тестовое задание: A1-PRO</title>
+      </head>
+      <body className={inter.className}>
+        <GlobalLayout>{children}</GlobalLayout>
+      </body>
+      </html>
   );
 }
