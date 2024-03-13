@@ -1,0 +1,13 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1rem;
+    border: 1px solid #F2F5FD;
+    border-radius: 1rem;
+}
+
+.row {
+    display: block;
+    padding: 0.25rem;
+}

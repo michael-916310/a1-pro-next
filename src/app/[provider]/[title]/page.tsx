@@ -1,5 +1,6 @@
 import {NextPage} from "next";
-import {getStaticParams} from '@/modules/game/repo/game.repo'
+import {getPageData, getStaticParams} from '@/modules/shared/repo/game.repo'
+import {GameCard} from "@/modules/game/components/game-card.component";
 
 type Props = {
     params: {
@@ -8,21 +9,24 @@ type Props = {
     }
 }
 
-const Page:NextPage<Props> = ({params: {provider,title}})=>{
-    console.log(`log ${provider} ${title}`)
-    return <div>Page: {provider} {title}</div>
+const Page:NextPage<Props> = async ({params: {title}})=>{
+
+    const data = await getPageData(title);
+
+    return (
+        <div>
+            <GameCard
+                title={data?.title ?? ''}
+                provider={data?.provider ?? ''}
+                categories={data?.categories ?? []}
+                url={`https://d2norla3tyc4cn.cloudfront.net/i/s3/${data?.identifier}.webp`}
+            />
+        </div>
+    )
 }
 
 export async function generateStaticParams() {
-    // const products = await fetch('https://.../products').then((res) => res.json())
-    //
-    // return products.map((product) => ({
-    //     category: product.category.slug,
-    //     product: product.id,
-    // }))
-
    return  await getStaticParams();
-
 }
 
 export default Page

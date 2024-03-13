@@ -1,5 +1,5 @@
-import {StaticParamsModel} from "@/modules/game/model/static-params.model";
-import {GameRepoResponseDto} from "@/modules/game/dto/game-repo.response.dto";
+import {StaticParamsModel} from "@/modules/shared/model/static-params.model";
+import {GameRepoResponseDto} from "@/modules/shared/dto/game-repo.response.dto";
 
 const  staticParamsModelAdapter = (dto:GameRepoResponseDto):Array<StaticParamsModel> => {
 
