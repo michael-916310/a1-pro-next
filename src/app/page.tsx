@@ -8,11 +8,17 @@ export default function Home() {
   const [value, setValue] = useState<string>(options[0]);
 
   return (
-    <div>
-      <span>
-        Выберите опцию:
-      </span>
-      <Select value={value} options={options}/>
-    </div>
+      <div>
+          <div>
+              Выбрана: {value}
+          </div>
+          <br/>
+          <div>
+              Выберите опцию:
+          </div>
+          <br/>
+          <Select value={value} options={options} onChange={setValue}/>
+
+      </div>
   );
 }

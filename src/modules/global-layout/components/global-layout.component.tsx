@@ -11,9 +11,11 @@ const GlobalLayout:FC<PropsWithChildren> = async ({children})=>{
     return (
         <main className={cls.main}>
             <aside>
-                <span>Первые несколько ссылок</span>
+                <span>Посмотреть Select на главной</span>
+                <Link className={cls.link} href={'/'}>Главная ( Select )</Link>
+                <span>Несколько ссылок</span>
                 {
-                    linksData.map((param, index)=> {
+                    linksData.map((param, index) => {
                         const url = `/${param.provider}/${param.title}`;
                         return (<Link className={cls.link} key={index} href={url}>{url}</Link>)
                     })
